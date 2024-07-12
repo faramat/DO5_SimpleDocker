@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  mini_serv:
+    image: server:v4
+    build: ../nginx
+    container_name: server4
+
+  nginxer:
+    image: nginx:latest
+    container_name: nginxer
+    ports:
+      - 80:8080
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
